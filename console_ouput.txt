@@ -1,0 +1,6 @@
+VN006 Quyt 3 1.2
+VN010 Bo 4 2.4
+VN020 Buoi 3 1.4
+VN002 Xoai 12 2.4
+VN001 Chuoi 12 3.4
+VN005 Man 20 3.2

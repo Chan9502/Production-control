@@ -1,0 +1,196 @@
+//thuật toán sắp xếp nỏi bột
+//theo chiều asc
+
+for(int i = 0; i < a.length; i++){
+	if(a[j] > a[j+1]){
+		int temp = a[j+1];
+		a[j+1] = a[j];
+		a[j] = temp;
+	}
+}
+
+//theo chiều desc
+for(int i = 0; i < a.length; i ++){
+	if(a[j] < a[j+1]){
+		int temp = a[j];
+		a[j] = a[j+1];
+		a[j+1] = temp;
+	}
+}
+
+//thuật toán sắp xếp chèn insert sort
+for(int i = 0; i < a.lenght; i++){
+	int key = a[i];
+	int j = i -1;
+	
+	while(j >= 0 && key > a[j]){
+		a[j+1] = a[j];
+		j--;
+	}
+	a[j+1] = key; 
+}
+
+//thuật toán sắp xếp chọn - select sort
+for(int i = 0; i < a.length; i++){
+	int min = i;
+	for(int j = i+1; j < a.length; j++){
+		if(a[j] < a[min]){
+			min = j;
+		}
+	}
+	int temp = a[min];
+	a[min] = a[i];
+	a[i] = temp;
+
+}
+
+//thuật toán Quick sort
+//chia nhỏ 
+partition(int[]a, int low, int hight){
+	int privot = a[hight];
+	int i = (low -1);
+	for(int j = low; j < hight; j++){
+		if(a[j] < privot){
+			i++;
+			
+			int temp = a[i];
+			a[i] = a[j];
+			a[j] = temp;
+		}	
+	}
+	int temp = a[i+1];
+	a[i+1] = a[hight];
+	a[hight] = temp
+	
+	return i+1;
+}
+//tiến hành đổi chỗ
+quickSOrt(int []a, int low, int hight){
+	if(low < hight){
+		int pivort = partition(a, low, hight);
+		
+		quickSOrt(a, low, pivort -1);
+		quickSOrt(a, pivort+1, hight);
+	}
+}
+
+//sắp xếp trộn mergeSort
+
+//chia mảng thành các mảng con
+merge(int []a, int left, int right, int n){
+	int a1 = n - left + 1;
+	int a2 = right - n;
+	
+	int []L = new int[a1];
+	int []R = new int[a2];
+	
+	for(int i = 0; i < a1; i++){
+		L[i] = a[left + i];
+	}
+	for(int j = 0; j < a2; ++j){
+		R[j] = a[n + 1 + j];
+	}
+	
+	int i = 0, j = 0;
+	
+	int k = left;
+	while(i < a1 && j < a2){
+		if(L[i] < R[j]){
+			a[k] = L[i];
+			i++;
+		}else{
+			a[k] = R[j];
+			j++;
+		}
+		k++;
+	}
+	
+	while(i < a1){
+		a[k] = L[i];
+		i++;
+		j++;
+	}
+	
+	while(j < a2){
+		a[k] = R[j];
+		j++;
+		k++;
+	}
+}
+
+//tiến hành sort
+void sort(int a[], int left, int right){
+	if(left < right){
+		int m = (left + right)/2;
+		sort(a, left, right);
+		sort(a, m+1, r);
+		
+		merge(a, l, m, r);
+	
+	}
+}
+
+//chuyển sang cơ số nhị phân
+void coverToBinary(int []a, int k){
+	Stack<String> myStack = new Stack<>();
+	
+	while(k > 0){
+	int soDu = k % 2;
+	myStack.push(soDu + " ");
+	k /=2;
+	}
+	
+	int len = myStack.size();
+	for(int i = 0; i < len; i++){
+		System.out.
+	}
+
+}
+
+//Danh sách liên kết
+//cách thêm vào đầu danh sách
+ Node head;
+ Node tail;
+ 
+ public danhSach(){
+	head = null;
+ }
+ 
+ void addToHead(int value){
+	Node node = new Node(value);
+	
+	if(head == null){
+		this.head = node;
+		this.tail = node;
+	}else{
+		tail.setNext(node);
+		this.tail = node;
+	}
+ }
+ 
+ //thêm vào 1 vị trí cụ thể
+ void addPos(int value, int pos){
+	Node node = new Node(value);
+	if(pos == 0){
+	 node.setNext(head);
+	 this.head = node;
+	}else{
+		int curr = 0;
+		Node currNode = this.head;
+		Node prev = null;
+		while(curr != pos){
+			prev = currNode;
+			currNode = currNode.getNext;
+			curr++;
+		
+		}
+		prev.setNext(node);
+		node.setNext(currNode)
+	}
+ 
+ }
+
+
+
+
+
